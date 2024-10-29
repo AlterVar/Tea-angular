@@ -15,6 +15,8 @@
 
   <section class="questions container pt-4 mb-4">
     <h2 class="mb-5 pb-1 text-center fw-bold">Ответы на часто задаваемые вопросы</h2>
+
+<!--    TODO:сделать компонент для вопросов    -->
     <div class="accordion d-flex w-75 m-auto flex-column gap-2" id="accordion">
       <div class="accordion-item border-0">
         <h3 class="accordion-header">
@@ -91,4 +93,24 @@
       </div>
     </div>
   </section>
+</div>
+
+<button id="popupButton" type="button" class="d-none btn btn-primary" data-bs-toggle="modal" data-bs-target="#popupModal"></button>
+
+<div class="modal fade" id="popupModal" tabindex="-1" aria-labelledby="popupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="popupModalLabel">Посмотрите наши чайные коллекции!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+        <img class="w-100 h-100" src="assets/easy/carousel-1.jpg" alt="tea-collection">
+      </div>
+      <div class="modal-footer mx-auto">
+        <button type="button" routerLink="/catalog"
+                class="btn btn-primary m-auto ps-3 ps-md-5 pe-3 pe-md-5 ms-md-3" data-bs-dismiss="modal">Смотреть</button>
+      </div>
+    </div>
+  </div>
 </div>
