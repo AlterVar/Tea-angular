@@ -11,22 +11,18 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav me-auto">
           <li class="navigation-item me-1">
-            <a href="#" class="nav-link active">Главная</a>
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Главная</a>
           </li>
           <li class="navigation-item">
-            <a href="#" class="nav-link">Преимущества</a>
-          </li>
-          <li class="navigation-item">
-            <a href="#" class="nav-link">Цены</a>
-          </li>
-          <li class="navigation-item">
-            <a href="#" class="nav-link">Контакты</a>
+            <a routerLink="/catalog" routerLinkActive="active" class="nav-link">Каталог</a>
           </li>
         </ul>
-        <form class="d-flex me-1">
-          <input class="form-control me-2" type="search" placeholder="Поиск чая" aria-label="Search">
-          <button class="btn hvr-push btn-outline-primary ps-4 pe-4" type="submit">Найти</button>
-        </form>
+
+<!--        TODO: set-up the search-->
+<!--        <form class="d-flex me-1">-->
+<!--          <input class="form-control me-2" type="search" placeholder="Поиск чая" aria-label="Search">-->
+<!--          <button class="btn hvr-push btn-outline-primary ps-4 pe-4" type="submit">Найти</button>-->
+<!--        </form>-->
       </div>
     </div>
   </nav>

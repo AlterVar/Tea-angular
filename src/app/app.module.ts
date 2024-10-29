@@ -25,6 +25,6 @@ import { OrderComponent } from './pages/order/order.component';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent, HeaderComponent, FooterComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
