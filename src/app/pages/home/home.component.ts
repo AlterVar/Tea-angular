@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.popup = document.getElementById('popupModal');
     this.popupSubscription = this.popupObservable.subscribe({
       next: () => {
-        console.log('hi');
         if (this.popup) {
           document.getElementById('popupButton')?.click();
         }
