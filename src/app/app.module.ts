@@ -12,6 +12,7 @@ import { OrderComponent } from './pages/order/order.component';
 import {RequestsService} from "./services/requests.service";
 import {HttpClientModule} from "@angular/common/http";
 import { ProductCardComponent } from './common/product-card/product-card.component';
+import { CutDescriptionPipe } from './pipes/cut-description.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductCardComponent } from './common/product-card/product-card.compone
     CatalogComponent,
     ProductComponent,
     OrderComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    CutDescriptionPipe
   ],
   imports: [
     BrowserModule,

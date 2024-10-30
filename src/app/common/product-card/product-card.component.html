@@ -2,9 +2,9 @@
   <div class="image">
     <img [src]="product.image" class="card-img-top">
   </div>
-  <div class="card-body">
+  <div class="card-body text-center">
     <h5 class="card-title mt-1 mb-3 fw-bold">{{product.title}}</h5>
-    <p class="card-text">{{product.description}}</p>
+    <p class="card-text">{{product.description | cutDescription}}</p>
     <a [routerLink]="['/catalog', product.id]" class="btn hvr-grow-shadow btn-primary ps-5 pe-5">Подробнее</a>
   </div>
 </div>
