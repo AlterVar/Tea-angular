@@ -19,7 +19,6 @@ export class CatalogComponent implements OnInit, OnDestroy {
     this.request.getProducts().subscribe({
       next: (data) => {
         this.products = data;
-        console.log(this.products);
       },
       error: err => {
         console.log('Ошибка при загрузке продуктов: ' + err);
