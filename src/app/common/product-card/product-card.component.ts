@@ -9,6 +9,8 @@ import {ProductType} from "../../types/product.type";
 export class ProductCardComponent implements OnInit {
   public _product: ProductType;
 
+  @Input() productsBoolean: boolean = false;
+
   @Input()
   get product(): ProductType {return this._product};
   set product(param: ProductType) {

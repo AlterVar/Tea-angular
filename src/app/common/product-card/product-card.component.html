@@ -1,10 +1,32 @@
-<div class="card">
+<div class="card" *ngIf="productsBoolean">
   <div class="image">
     <img [src]="product.image" class="card-img-top">
   </div>
   <div class="card-body text-center">
     <h5 class="card-title mt-1 mb-3 fw-bold">{{product.title}}</h5>
-    <p class="card-text">{{product.description | cutDescription}}</p>
+    <div class="card-description mb-3">
+      <p class="card-text">{{product.description | cutDescription}}</p>
+    </div>
+
     <a [routerLink]="['/catalog', product.id]" class="btn hvr-grow-shadow btn-primary ps-5 pe-5">Подробнее</a>
+  </div>
+</div>
+
+<div class="card border-0 flex-row" *ngIf="!productsBoolean">
+  <div class="image w-25">
+    <img [src]="product.image" class="card-img-top">
+  </div>
+  <div class="card-body w-75">
+    <h5 class="card-title mt-1 mb-3 fw-bold text-center">{{product.title}}</h5>
+    <div class="card-description mb-3">
+      <p class="card-text">{{product.description}}</p>
+    </div>
+    <div class="card-footer bg-transparent d-flex flex-row align-items-center ps-0 pt-3">
+      <div class="price btn bg-transparent border-1 border-primary px-5 me-2 text-primary">
+        {{product.price}}₽
+      </div>
+      <a routerLink="/order" [queryParams]="{product: product.title}" class="btn btn-primary ps-5 pe-5">Купить</a>
+    </div>
+
   </div>
 </div>

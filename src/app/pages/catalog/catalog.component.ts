@@ -4,12 +4,14 @@ import {ProductType} from "../../types/product.type";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-catalog',
+  selector: 'catalog',
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss']
 })
 export class CatalogComponent implements OnInit, OnDestroy {
   public products: ProductType[] = [];
+  public productsBoolean: boolean = true;
+
   constructor(private request: RequestsService,
               private router: Router) { }
 
