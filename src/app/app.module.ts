@@ -13,6 +13,7 @@ import {RequestsService} from "./services/requests.service";
 import {HttpClientModule} from "@angular/common/http";
 import { ProductCardComponent } from './common/product-card/product-card.component';
 import { CutDescriptionPipe } from './pipes/cut-description.pipe';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CutDescriptionPipe } from './pipes/cut-description.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [RequestsService],
   bootstrap: [AppComponent]
