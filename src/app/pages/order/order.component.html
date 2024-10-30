@@ -1,7 +1,13 @@
 <div class="container p-0">
   <section class="form-section pt-3 my-5">
-    <h2 class="mb-5 pb-2 text-center">Сделать заказ</h2>
+    <h2 class="mb-4 pb-2 text-center">Сделать заказ</h2>
     <form class="w-50 m-auto animate__animated animate__jackInTheBox wow jackInTheBox">
+      <div class="row g-4 mb-3">
+        <div class="col-md-12">
+          <label for="inputProduct" class="form-label">Товар</label>
+          <input type="text" class="form-control" id="inputProduct">
+        </div>
+      </div>
       <div class="row g-4 mb-3">
         <div class="col-md-4">
           <label for="inputName" class="form-label">Имя</label>
@@ -28,12 +34,20 @@
         </div>
       </div>
 
-      <div class="row g-4 mb-4">
+      <div class="row g-4 mb-3">
         <div class="col-md-12">
           <label for="inputAddress" class="form-label">Адрес</label>
           <input type="text" class="form-control" id="inputAddress">
         </div>
       </div>
+
+      <div class="row g-4 mb-4">
+        <div class="col-md-12">
+          <label for="inputComment" class="form-label">Комментарий к заказу</label>
+          <input type="text" class="form-control" id="inputComment">
+        </div>
+      </div>
+
       <div class="row g-4 mb-4">
         <div class="col-md-3 pe-0">
           <button type="button" id="submitBtn" class="btn hvr-grow-shadow btn-primary w-100">Отправить
