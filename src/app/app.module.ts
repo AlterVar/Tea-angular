@@ -9,6 +9,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { CatalogComponent } from './pages/catalog/catalog.component';
 import { ProductComponent } from './pages/product/product.component';
 import { OrderComponent } from './pages/order/order.component';
+import {RequestsService} from "./services/requests.service";
+import {HttpClientModule} from "@angular/common/http";
+import { ProductCardComponent } from './common/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,15 @@ import { OrderComponent } from './pages/order/order.component';
     HomeComponent,
     CatalogComponent,
     ProductComponent,
-    OrderComponent
+    OrderComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RequestsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
