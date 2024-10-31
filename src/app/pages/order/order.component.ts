@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
-import {Observable, Subscription} from "rxjs";
+import {RequestsService} from "../../services/requests.service";
+import {OrderType} from "../../types/order.type";
 
 @Component({
   selector: 'app-order',
@@ -9,6 +10,8 @@ import {Observable, Subscription} from "rxjs";
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
+  public showForm: boolean = true;
+  public orderError: boolean = false;
 
   orderForm = this.fb.group({
     product: [''],
@@ -26,14 +29,17 @@ export class OrderComponent implements OnInit {
   })
 
   constructor(private fb: FormBuilder,
-              private activatedRoute: ActivatedRoute,) {}
+              private activatedRoute: ActivatedRoute,
+              private requestService: RequestsService) {}
 
+  get product() {return this.orderForm.get('product')};
   get personalName() {return this.orderForm.get('personalInfo')?.get('name')};
   get personalLastName() {return this.orderForm.get('personalInfo')?.get('last_name')};
   get personalPhone() {return this.orderForm.get('personalInfo')?.get('phone')};
   get addressInfo() {return this.orderForm.get('addressInfo')?.get('address')};
   get addressCountry() {return this.orderForm.get('addressInfo')?.get('country')};
   get addressZip() {return this.orderForm.get('addressInfo')?.get('zip')};
+  get comment() {return this.orderForm.get('comment')};
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
@@ -45,6 +51,34 @@ export class OrderComponent implements OnInit {
   }
 
   createOrder() {
+    const orderInfo: OrderType = {
+      name: this.personalName?.value ? this.personalName.value : '',
+      last_name: this.personalLastName?.value ? this.personalLastName.value : '',
+      phone: this.personalPhone?.value ? this.personalPhone.value : '',
+      country: this.addressCountry?.value ? this.addressCountry.value : '',
+      zip: this.addressZip?.value ? this.addressZip.value : '',
+      product: this.product?.value ? this.product.value : '',
+      address: this.addressInfo?.value ? this.addressInfo.value : ''
+    }
 
+    if (this.orderForm.get('comment')?.value) {
+      orderInfo.comment = this.comment?.value ? this.comment?.value : '';
+    }
+
+    this.requestService.sendOrder(orderInfo)
+      .subscribe( {
+        next: response => {
+          if (response.success && !response.message) {
+            this.orderForm.reset();
+            this.showForm = false;
+          } else {
+            this.orderError = true;
+          }
+        },
+        error: err => {
+          this.orderError = true;
+          console.log(err);
+        }
+    })
   }
 }

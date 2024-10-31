@@ -1,5 +1,5 @@
 <div class="container p-0">
-  <section class="form-section pt-3 my-5">
+  <section class="form-section pt-3 my-5" *ngIf="showForm">
     <h2 class="mb-4 pb-2 text-center">Сделать заказ</h2>
     <form class="w-50 m-auto"
           novalidate [formGroup]="orderForm">
@@ -116,16 +116,21 @@
         </div>
       </div>
 
-      <div class="row g-4 mb-4">
+      <div class="row g-4 mb-4 d-flex flex-row">
         <div class="col-md-3 pe-0">
           <button type="submit" id="submitBtn" class="btn hvr-grow-shadow btn-primary w-100"
                   (click)="createOrder()">Отправить
           </button>
         </div>
+        <div class="col-md-5 pe-0" *ngIf="orderError">
+          <div class="invalid-feedback">
+            Произошла ошибка. Попробуйте еще раз.
+          </div>
+        </div>
       </div>
     </form>
   </section>
-  <div class="order-approved m-auto d-none mt-5 pt-5">
+  <div class="order-approved m-auto mt-5 pt-5" *ngIf="!showForm">
     <h2 class=" mb-5 pb-5 text-center">Спасибо за заказ. Мы свяжемся с вами в ближайшее время!</h2>
   </div>
 </div>
