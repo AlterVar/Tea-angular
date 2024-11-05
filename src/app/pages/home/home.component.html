@@ -16,86 +16,60 @@
   <section class="questions container pt-4 mb-4">
     <h2 class="mb-5 pb-1 text-center fw-bold">Ответы на часто задаваемые вопросы</h2>
 
-<!--    TODO:сделать компонент для вопросов    -->
-    <div class="accordion d-flex w-75 m-auto flex-column gap-2" id="accordion">
-      <div class="accordion-item border-0">
-        <h3 class="accordion-header">
-          <button class="accordion-button collapsed text-bg-primary mb-0 ps-3 pe-5 rounded-3 fs-6 py-4"
-                  type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
-                  aria-controls="collapseOne">
-            Собираете ли вы подарочные боксы?
-          </button>
-        </h3>
-        <div class="accordion-collapse collapse ps-3 fs-6" id="collapseOne" data-bs-parent="#accordion">
-          <div class="accordion-body">
-            Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и
-            стоимость!
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item border-0">
-        <h3 class="accordion-header">
-          <button class="accordion-button collapsed text-bg-primary mb-0 ps-3 pe-5 rounded-3 fs-6 py-4"
-                  type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
-                  aria-controls="collapseTwo">
-            Сколько у вас разновидностей чая?
-          </button>
-        </h3>
-        <div class="accordion-collapse collapse ps-3 fs-6" id="collapseTwo" data-bs-parent="#accordion">
-          <div class="accordion-body">
-            На данный момент у нас более 60 сортов чая и мы постоянно расширяем ассортимент!
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item border-0">
-        <h3 class="accordion-header">
-          <button class="accordion-button collapsed text-bg-primary mb-0 ps-3 pe-5 rounded-3 fs-6 py-4"
-                  type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
-                  aria-controls="collapseThree">
+    <ngb-accordion [closeOthers]="true">
+      <ngb-panel>
+        <ng-template id="static-1" ngbPanelTitle>
+          Собираете ли вы подарочные боксы?
+        </ng-template>
+        <ng-template ngbPanelContent>
+          Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и
+          стоимость!
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template id="static-2" ngbPanelTitle>
+          Сколько у вас разновидностей чая?
+        </ng-template>
+        <ng-template ngbPanelContent>
+          На данный момент у нас более 60 сортов чая и мы постоянно расширяем ассортимент!
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template id="static-3" ngbPanelTitle>
           В какой срок осуществляется доставка?
-          </button>
-        </h3>
-        <div class="accordion-collapse collapse ps-3 fs-6" id="collapseThree" data-bs-parent="#accordion">
-          <div class="accordion-body">
-            По городу доставка осуществляется за 3 часа. Доставка в другие города рассчитывается в
-            зависимости от выбранной компании доставки.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item border-0">
-        <h3 class="accordion-header">
-          <button class="accordion-button collapsed text-bg-primary mb-0 ps-3 pe-5 rounded-3 fs-6 py-4"
-                  type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
-                  aria-controls="collapseFour">
+        </ng-template>
+        <ng-template ngbPanelContent>
+          По городу доставка осуществляется за 3 часа. Доставка в другие города рассчитывается в
+          зависимости от выбранной компании доставки.
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template id="static-4" ngbPanelTitle>
           У вас обновляется ассортимент?
-          </button>
-        </h3>
-        <div class="accordion-collapse collapse ps-3 fs-6" id="collapseFour" data-bs-parent="#accordion">
-          <div class="accordion-body">
-            Мы стараемся расширять ассортимент, а также обновлять вкусы сборных чаев не реже раза в
-            месяц!
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item border-0">
-        <h3 class="accordion-header">
-          <button class="accordion-button collapsed text-bg-primary mb-0 ps-3 pe-5 rounded-3 fs-6 py-4"
-                  type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
-                  aria-controls="collapseFive">
+        </ng-template>
+        <ng-template ngbPanelContent>
+          Мы стараемся расширять ассортимент, а также обновлять вкусы сборных чаев не реже раза в
+          месяц!
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel>
+        <ng-template id="static-5" ngbPanelTitle>
           Какого объема у вас пачки чая?
-          </button>
-        </h3>
-        <div class="accordion-collapse collapse ps-3 fs-6" id="collapseFive" data-bs-parent="#accordion">
-          <div class="accordion-body">
-            У нас есть несколько вариантов объема на выбор: 50, 100, 200 и 500гр
-          </div>
-        </div>
-      </div>
-    </div>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          У нас есть несколько вариантов объема на выбор: 50, 100, 200 и 500гр
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
   </section>
 </div>
 
-<button id="popupButton" type="button" class="d-none btn btn-primary" data-bs-toggle="modal" data-bs-target="#popupModal"></button>
+<button id="popupButton" type="button" class="d-none btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#popupModal"></button>
 
 <div class="modal fade" id="popupModal" tabindex="-1" aria-labelledby="popupModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -109,7 +83,8 @@
       </div>
       <div class="modal-footer mx-auto">
         <button type="button" routerLink="/catalog"
-                class="btn btn-primary m-auto ps-3 ps-md-5 pe-3 pe-md-5 ms-md-3" data-bs-dismiss="modal">Смотреть</button>
+                class="btn btn-primary m-auto ps-3 ps-md-5 pe-3 pe-md-5 ms-md-3" data-bs-dismiss="modal">Смотреть
+        </button>
       </div>
     </div>
   </div>

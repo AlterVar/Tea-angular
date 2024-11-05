@@ -14,6 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { ProductCardComponent } from './common/product-card/product-card.component';
 import { CutDescriptionPipe } from './pipes/cut-description.pipe';
 import {ReactiveFormsModule} from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [RequestsService],
   bootstrap: [AppComponent]

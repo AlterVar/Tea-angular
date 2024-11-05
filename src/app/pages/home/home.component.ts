@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.popupObservable = new Observable<HTMLElement | null>(observer => {
       const timeout = setTimeout(() => {
         observer.next();
-      }, 10000)
+      }, 1000)
       return {
         unsubscribe() {
           clearTimeout(timeout);
