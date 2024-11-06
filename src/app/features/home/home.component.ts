@@ -1,5 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, TemplateRef} from '@angular/core';
 import {Observable, Subscription} from "rxjs";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-home',
@@ -9,14 +10,13 @@ import {Observable, Subscription} from "rxjs";
 export class HomeComponent implements OnInit, OnDestroy {
   private popupObservable: Observable<HTMLElement | null>;
   private popupSubscription: Subscription | null = null;
-  private popup: HTMLElement | null = null;
 
 
-  constructor() {
+  constructor(private modalService: NgbModal) {
     this.popupObservable = new Observable<HTMLElement | null>(observer => {
       const timeout = setTimeout(() => {
         observer.next();
-      }, 1000)
+      }, 10000)
       return {
         unsubscribe() {
           clearTimeout(timeout);
@@ -25,17 +25,17 @@ export class HomeComponent implements OnInit, OnDestroy {
     })
   }
 
+  openPopup(content: TemplateRef<any>) {
+    this.modalService.open(content, {ariaLabelledBy: 'popupModalTitle'});
+  }
+
   ngOnInit(): void {
-    this.popup = document.getElementById('popupModal');
     this.popupSubscription = this.popupObservable.subscribe({
       next: () => {
-        if (this.popup) {
-          document.getElementById('popupButton')?.click();
-        }
+        document.getElementById('popupButton')?.click();
       }
     })
   }
-
   ngOnDestroy() {
     this.popupSubscription?.unsubscribe();
   }
