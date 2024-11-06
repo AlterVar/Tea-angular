@@ -11,11 +11,13 @@ export class ProductCardComponent implements OnInit {
 
   @Input() productsBoolean: boolean = false;
 
+
   @Input()
   get product(): ProductType {return this._product};
   set product(param: ProductType) {
     this._product = param;
   }
+
   constructor() {
     this._product = {
       image: '',

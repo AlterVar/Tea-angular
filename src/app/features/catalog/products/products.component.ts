@@ -1,14 +1,14 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {RequestsService} from "../../services/requests.service";
-import {ProductType} from "../../types/product.type";
+import {RequestsService} from "../../../shared/services/requests.service";
+import {ProductType} from "../../../types/product.type";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'catalog',
-  templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.scss']
+  selector: 'products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.scss']
 })
-export class CatalogComponent implements OnInit, OnDestroy {
+export class ProductsComponent implements OnInit, OnDestroy {
   public products: ProductType[] = [];
   public productsBoolean: boolean = true;
 
@@ -29,7 +29,6 @@ export class CatalogComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-
   }
 
 }
